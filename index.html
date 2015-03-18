@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="semantic.min.css">
+</head>
+<body>
+
+            <div id="sidebar" class="sidebar ui item main menu visible four top">
+                <a href="whitewater-rafting" class="item">Whitewater Rafting</a>
+                <a href="scenic-float" class="item">Scenic Floats</a>
+                <a href="zipline" class="item">Zipline Tours</a>
+                <a href="package-deals" class="item">Package Deals</a>
+            </div>
+
+
+    <div class="pusher">
+        My Content goes here
+        
+        <div id="menu" style="display: none" >Menu</div>
+    </div>
+
+
+    <!-- JS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script src="semantic.min.js"></script>
+
+    <!-- Load Sidebar -->
+    <script type="text/javascript">
+    $(document).ready(function($) {
+        
+        $('#menu').click(function(){        	
+	        $('#sidebar').sidebar('toggle');
+        });
+        
+        
+        
+        
+        var resize = function(){
+	        if(window.innerWidth < 768){
+        		$('#sidebar').removeClass('visible four top');
+        		$('#sidebar').addClass('left sidebar');
+        		$('#menu').show();
+        	}
+        	else{
+        		$('#sidebar').removeClass('left sidebar');
+        		$('#sidebar').addClass('visible four top');    
+        		$('#menu').hide();    
+        		$('body').removeClass('pushable');		
+        	}
+    	};
+    	
+        window.onresize = function(event) {
+        	resize();        	
+        };
+        
+        resize();
+    });
+    </script>
+</body>
+</html>
